@@ -8,8 +8,8 @@ export const NavBar: FC = () => {
     <Container>
       <Logo>DVERYBEST</Logo>
       <NavItemContainer>
-        {navLinks.map((link) => (
-          <NavItem>
+        {navLinks.map((link,index) => (
+          <NavItem key={index}>
             <Link href={`#${link}`}>
               <span>#</span>
               {link}

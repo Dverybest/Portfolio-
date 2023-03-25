@@ -1,13 +1,19 @@
 import { Hero } from "@/components";
 import { background } from "@/public/images";
+import Head from "next/head";
 import styled from "styled-components";
 
 export default function Home() {
   return (
-    <Container>
-      <Hero />
-      <Main></Main>
-    </Container>
+    <>
+      <Head>
+        <title>Dverybest</title>
+      </Head>
+      <Container>
+        <Hero />
+        <Main></Main>
+      </Container>
+    </>
   );
 }
 const Container = styled.div`
@@ -20,4 +26,4 @@ const Main = styled.main`
   background-position: center;
   position: relative;
   background-size: contain;
-`
+`;

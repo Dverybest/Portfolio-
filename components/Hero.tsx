@@ -15,7 +15,7 @@ export const Hero: FC = () => {
         <HeaderMain>
           <HeaderDetails>
             <Title>
-              Hey, <br/><span id={"name"}>I'm Charles Best;</span><br/> a{" "}
+              Hey, <br/><span id={"name"}>I&apos;m Charles Best;</span><br/> a{" "}
             <span id={"title"}>Senior Software Engineer.</span>
             </Title>
             <SubTitle>
