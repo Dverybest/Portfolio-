@@ -34,6 +34,7 @@ export default function Home() {
 const Container = styled.div`
   max-width: 1440px;
   margin: auto;
+  position: relative;
 `;
 const Main = styled.main`
   background-image: url(${background.src});

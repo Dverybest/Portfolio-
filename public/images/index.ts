@@ -8,6 +8,8 @@ import decoration from "./decoration.svg";
 import logo from "./logo.svg";
 import user2 from "./user2.png";
 import background2 from "./background2.svg";
+import hambuger from "./hambuger.svg";
+import close from "./close.svg";
 
 export {
   background1,
@@ -20,4 +22,6 @@ export {
   logo,
   user2,
   background2,
+  hambuger,
+  close
 };
