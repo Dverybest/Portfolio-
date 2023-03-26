@@ -1,4 +1,4 @@
-import { Hero } from "@/components";
+import { Hero, Projects, Quote } from "@/components";
 import { background } from "@/public/images";
 import Head from "next/head";
 import styled from "styled-components";
@@ -11,7 +11,10 @@ export default function Home() {
       </Head>
       <Container>
         <Hero />
-        <Main></Main>
+        <Main>
+          <Quote />
+          <Projects />
+        </Main>
       </Container>
     </>
   );
@@ -23,7 +26,10 @@ const Container = styled.div`
 const Main = styled.main`
   background-image: url(${background.src});
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
+  margin-top: 112px;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  background-size: contain;
+  background-size: cover;
 `;

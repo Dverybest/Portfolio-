@@ -16,5 +16,6 @@ const ButtonStyle = styled.button`
   line-height: 21px;
   padding: 8px 16px;
   width: fit-content;
+  cursor: pointer;
   border: 1px solid ${({ theme }) => theme.colors.primary};
 `;

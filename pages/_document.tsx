@@ -30,7 +30,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="en">
+      <Html lang="en" style={{scrollBehavior:'smooth'}}>
         <Head>
           <meta name="description" content="Charles Best portfolio website" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
