@@ -1,38 +1,42 @@
 import { background2, decoration, user2 } from "@/public/images";
 import Image from "next/image";
+import Link from "next/link";
 import React, { FC } from "react";
+import { SiDiscord, SiGmail } from "react-icons/si";
 import styled from "styled-components";
 import { Button } from "./Button";
 import { SkillCard } from "./SkillCard";
 
-export const AboutMe: FC = () => {
+export const Contact: FC = () => {
   return (
-    <Container id={'about-me'}>
+    <Container id={"contact"}>
       <TitleContainer>
         <Title>
-          <span>#</span>about-me
+          <span>#</span>contacts
         </Title>
         <Line />
       </TitleContainer>
       <Details>
         <Column>
-          <Text>Hello, I'm Charles Best! <i>aka DveryBest</i></Text>
           <Text>
-            I'm an accomplished Software Engineer with extensive knowledge and
-            experience in building enterprise, start-ups and small scale
-            software solutions.
+            I&apos;m interested in freelance opportunities. However, if you have
+            other request or question, don&apos;t hesitate to contact me
           </Text>
-          <Text>
-            Creating solutions that come alive and solve critical problems is
-            one thing I love doing; I'm goal driven, industrious and love human
-            interaction. You 'll find me staking out a challenge, fleshing out a
-            problem or just chilling at a meeetup with friends and family.
-          </Text>
-          <Button text="Read more~>" />
         </Column>
-        <ImageContainer>
-          <UserImage src={user2} alt="Charles Best" />
-        </ImageContainer>
+
+        <ContactDetails>
+          <ContactTitle>Message me here</ContactTitle>
+          <Row>
+            <SiDiscord />
+            <Text>Dverybest#1571</Text>
+          </Row>
+          <Row>
+            <SiGmail />
+            <Link target={"_blank"} href="mailto:email@example.com">
+              <Text>charlesbest8@gmail.com</Text>
+            </Link>
+          </Row>
+        </ContactDetails>
       </Details>
     </Container>
   );
@@ -61,7 +65,7 @@ const Title = styled.h2`
   }
 `;
 const Line = styled.span`
-  max-width: 326px;
+  max-width: 127px;
   height: 1px;
   flex: 1;
   display: inline-block;
@@ -74,27 +78,7 @@ const Details = styled.div`
   column-gap: 20px;
   row-gap: 24px;
   @media (max-width: 425px) {
-    flex-direction: column-reverse;
-  }
-`;
-const ImageContainer = styled.div`
-  background-image: url(${background2.src});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  @media (max-width: 425px) {
-    display: flex;
-    justify-content: center;
-  }
-`;
-const UserImage = styled(Image)`
-  margin-top: -100px;
-  max-width: 346px;
-  height: auto;
-  width: 100%;
-  @media (max-width: 768px) {
-    max-width: 270px;
-    margin-top: 0px;
+    flex-direction: column;
   }
 `;
 const Text = styled.p`
@@ -112,10 +96,26 @@ const Column = styled.div`
   max-width: 512px;
   flex: 2;
   column-gap: 16px;
-  @media (max-width: 768px) {
-    /* flex-direction: row; */
-  }
   @media (max-width: 425px) {
     flex-direction: column;
   }
+`;
+
+const ContactDetails = styled.div`
+  border: 1px solid ${({ theme }) => theme.colors.grey};
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+`;
+const ContactTitle = styled.h4`
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+`;
+const Row = styled.div`
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
+  color: ${({ theme }) => theme.colors.grey};
 `;
