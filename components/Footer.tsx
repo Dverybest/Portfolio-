@@ -1,3 +1,5 @@
+import { logo } from "@/public/images";
+import Image from "next/image";
 import React, { FC } from "react";
 import styled from "styled-components";
 import { Social } from "./Social";
@@ -8,8 +10,10 @@ export const Footer: FC = () => {
       <Row>
         <Column>
           <Row>
-            <Logo>DVERYBEST</Logo>
-            <Email>charlesbest8@gmail.com</Email>
+            <LogoContainer>
+              <Image height={24} width={24} src={logo} alt={""} />
+              <Logo>DVERYBEST</Logo>
+            </LogoContainer>
           </Row>
           <Title>Senior software Engineer</Title>
         </Column>
@@ -19,7 +23,7 @@ export const Footer: FC = () => {
         </Column>
       </Row>
       <span id={"copyright"}>
-        © Copyright {new Date().getFullYear()}. Made by Elias
+        © Copyright {new Date().getFullYear()}.
       </span>
     </Container>
   );
@@ -68,16 +72,15 @@ const Column = styled.div`
     justify-content: center;
   }
 `;
+const LogoContainer = styled.div`
+  display: flex;
+  column-gap: 5px;
+`;
 const Logo = styled.h1`
   font-weight: 700;
   font-size: 20px;
   line-height: 27px;
   color: ${({ theme }) => theme.colors.white};
-`;
-const Email = styled.p`
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 21px;
 `;
 const Title = styled.p`
   font-weight: 400;
