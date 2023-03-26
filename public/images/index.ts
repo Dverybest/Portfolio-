@@ -4,5 +4,13 @@ import background from "./background.png";
 import soji from "./soji.png";
 import evakitchen from "./evakitchen.png";
 import aladdin from "./aladdin.png";
-
-export { background1, user1, background, soji, evakitchen, aladdin };
+import decoration from "./decoration.svg";
+export {
+  background1,
+  user1,
+  background,
+  soji,
+  evakitchen,
+  aladdin,
+  decoration,
+};
