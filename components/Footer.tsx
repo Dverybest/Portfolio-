@@ -15,7 +15,7 @@ export const Footer: FC = () => {
               <Logo>DVERYBEST</Logo>
             </LogoContainer>
           </Row>
-          <Title>Senior software Engineer</Title>
+          <Title>Senior Software Engineer</Title>
         </Column>
         <Column>
           <Media>Media</Media>
@@ -23,7 +23,7 @@ export const Footer: FC = () => {
         </Column>
       </Row>
       <span id={"copyright"}>
-        © Copyright {new Date().getFullYear()}.
+        © Dverybest {new Date().getFullYear()}. All Rights Reserved.
       </span>
     </Container>
   );
