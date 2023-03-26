@@ -1,4 +1,4 @@
-import { Footer, Hero, Projects, Quote, Skills } from "@/components";
+import { AboutMe, Footer, Hero, Projects, Quote, Skills } from "@/components";
 import { background } from "@/public/images";
 import Head from "next/head";
 import styled from "styled-components";
@@ -14,9 +14,10 @@ export default function Home() {
         <Main>
           <Quote />
           <Projects />
-          <Skills/>
+          <Skills />
+          <AboutMe />
         </Main>
-        <Footer/>
+        <Footer />
       </Container>
     </>
   );

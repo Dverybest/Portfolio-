@@ -6,6 +6,8 @@ import evakitchen from "./evakitchen.png";
 import aladdin from "./aladdin.png";
 import decoration from "./decoration.svg";
 import logo from "./logo.svg";
+import user2 from "./user2.png";
+import background2 from "./background2.svg";
 
 export {
   background1,
@@ -15,5 +17,7 @@ export {
   evakitchen,
   aladdin,
   decoration,
-  logo
+  logo,
+  user2,
+  background2,
 };

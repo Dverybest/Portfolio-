@@ -26,7 +26,7 @@ export const Hero: FC = () => {
           </HeaderDetails>
           <HeaderDetails>
             <UserImageContainer>
-              <UserImage src={user1} alt={"Charles Best"} />
+              <UserImage priority src={user1} alt={"Charles Best"} />
               <WorkingOnContainer>
                 <Status />
                 Currently working on Portfolio
