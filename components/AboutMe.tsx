@@ -16,16 +16,16 @@ export const AboutMe: FC = () => {
       </TitleContainer>
       <Details>
         <Column>
-          <Text>Hello, I'm Charles Best! <i>aka DveryBest</i></Text>
+          <Text>Hello, I&apos;m Charles Best! <i>aka DveryBest</i></Text>
           <Text>
-            I'm an accomplished Software Engineer with extensive knowledge and
+            I&apos;m an accomplished Software Engineer with extensive knowledge and
             experience in building enterprise, start-ups and small scale
             software solutions.
           </Text>
           <Text>
             Creating solutions that come alive and solve critical problems is
-            one thing I love doing; I'm goal driven, industrious and love human
-            interaction. You 'll find me staking out a challenge, fleshing out a
+            one thing I love doing; I&apos;m goal driven, industrious and love human
+            interaction. You &apos;ll find me staking out a challenge, fleshing out a
             problem or just chilling at a meeetup with friends and family.
           </Text>
           <Button text="Read more~>" />
