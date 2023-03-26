@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { SiGithub, SiLinkedin, SiTwitter } from "react-icons/si";
 import Link from "next/link";
 
-export const Social: FC = () => {
+export const Social: FC = ({...rest}) => {
   return (
-    <Conatiner>
-      <Line />
+    <Conatiner {...rest}>
+      <Line id={'line'}/>
       <Link target={"_blank"} href={"https://github.com/Dverybest"}>
         <SiGithub />
       </Link>
