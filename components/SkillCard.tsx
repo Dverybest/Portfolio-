@@ -30,7 +30,6 @@ const Title = styled.div`
   font-weight: 600;
   font-size: 16px;
   line-height: 21px;
-  color: ${({ theme }) => theme.colors.white};
   padding: 8px;
   border-bottom: 2px solid ${({ theme }) => theme.colors.grey};
 `;
