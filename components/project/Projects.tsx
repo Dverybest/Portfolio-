@@ -1,16 +1,14 @@
 import {
-  aladdin,
   evakitchen,
   ifunanya,
   portilify,
   soji,
   soji_admin,
 } from "@/public/images";
-import Link from "next/link";
-import React, { FC } from "react";
+import { typography } from "@/utils";
+import { FC } from "react";
 import styled from "styled-components";
 import { ProjectCard } from "./ProjectCard";
-import { typography } from "@/utils";
 
 export const Projects: FC = () => {
   const projects = [

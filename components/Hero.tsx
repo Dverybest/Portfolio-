@@ -34,13 +34,13 @@ export const Hero: FC = () => {
       >
         <HeaderDetails>
           <Title>
-            Hello, I'm <br />
+            Hello, I&apos;m <br />
             Charles Best
           </Title>
           <SubTitle>
-            I'm a goal-driven Software Engineer with over 6 years of experience
-            and proven expertise in leading diverse teams to ideate, build, and
-            deploy innovative software solutions.
+            I&apos;m a goal-driven Software Engineer with over 6 years of
+            experience and proven expertise in leading diverse teams to ideate,
+            build, and deploy innovative software solutions.
           </SubTitle>
           <Button text="Say Hello!" onClick={() => router.push("#contact")} />
 

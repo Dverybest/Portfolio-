@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import styled from "styled-components";
-import { Button } from "./Button";
 import { typography } from "@/utils";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
+import { FC } from "react";
+import styled from "styled-components";
+import { Button } from "./Button";
 
 export const Banner: FC = () => {
   const router = useRouter();
@@ -25,7 +25,7 @@ export const Banner: FC = () => {
   };
   return (
     <Container>
-      <Title>Do you have Project Idea? Let's discuss your project!</Title>
+      <Title>Do you have Project Idea? Let&apos;s discuss your project!</Title>
       <Description>
         {text.split("").map((char, index) => {
           const variants = {
@@ -46,6 +46,7 @@ export const Banner: FC = () => {
               variants={variants}
               initial={"hide"}
               exit={"hide"}
+              key={index}
               whileInView={"show"}
             >
               {char}

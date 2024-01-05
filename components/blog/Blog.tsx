@@ -1,20 +1,13 @@
 import {
-  aladdin,
-  evakitchen,
-  ifunanya,
   javascript_interview,
-  portilify,
   redux,
   remove_duplicate,
-  soji,
-  soji_admin,
   tdd,
 } from "@/public/images";
-import Link from "next/link";
-import React, { FC } from "react";
+import { typography } from "@/utils";
+import { FC } from "react";
 import styled from "styled-components";
 import { BlogCard } from "./BlogCard";
-import { typography } from "@/utils";
 
 export const Blog: FC = () => {
   const projects = [
@@ -91,7 +84,7 @@ const TitleContainer = styled.div`
   justify-content: space-between;
 
   row-gap: 24px;
-  margin:0 154px 60px 0;
+  margin: 0 154px 60px 0;
 `;
 const Row = styled.div`
   display: flex;

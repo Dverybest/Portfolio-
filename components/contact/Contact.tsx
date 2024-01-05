@@ -28,7 +28,7 @@ export const Contact: FC = () => {
         <Title>Let&apos;s discuss your Project</Title>
         <Text>
           Let&apos;s Connect: Your Ideas, My Expertise – Reach Out for
-          Collaboration, Inquiries, or a Simple Hello!"
+          Collaboration, Inquiries, or a Simple Hello!
         </Text>
       </TitleContainer>
       <Container>
