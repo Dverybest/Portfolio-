@@ -1,49 +1,82 @@
 import { close, hambuger, logo } from "@/public/images";
+import { typography } from "@/utils";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React, { FC, useState } from "react";
+import { useRouter } from "next/router";
+import { FC, useState } from "react";
 import styled, { css } from "styled-components";
+import { Button } from "./Button";
 
 export const NavBar: FC = () => {
-  const navLinks = ["home", "works", "about-me", "contact", "blog"];
+  const navLinks = [
+    "Home",
+    "About",
+    "Process",
+    "Portfolio",
+    "Blog",
+    // "Services",
+  ];
   const [toggle, setToggle] = useState(false);
+  const router = useRouter();
   return (
-    <Wrapper toggle={toggle}>
-      <Container>
-        <LogoContainer>
-          <Image height={24} width={24} src={logo} alt={""} />
-          <Logo>DVERYBEST</Logo>
-        </LogoContainer>
-        <Hambuger
-          role={"button"}
-          height={24}
-          width={24}
-          onClick={() => setToggle((prev) => !prev)}
-          src={!toggle ? hambuger : close}
-          alt={""}
-        />
-      </Container>
-      <NavItemContainer toggle={toggle}>
-        {navLinks.map((link, index) => (
-          <NavItem key={index}>
-            <Link
-              onClick={() => setToggle(false)}
-              target={link === "blog" ? "_blank" : undefined}
-              href={link === "blog" ? "https://dev.to/dverybest" : `#${link}`}
-            >
-              <span>#</span>
-              {link}
-            </Link>
-          </NavItem>
-        ))}
-      </NavItemContainer>
-    </Wrapper>
+    <AnimatePresence>
+      <Wrapper toggle={toggle} layout>
+        <Container>
+          <LogoContainer>
+            <Image height={40} width={213} src={logo} alt={""} />
+          </LogoContainer>
+          {!toggle ? (
+            <Hambuger
+              role={"button"}
+              height={24}
+              width={24}
+              onClick={() => setToggle((prev) => !prev)}
+              src={hambuger}
+              alt={""}
+            />
+          ) : (
+            <Hambuger
+              role={"button"}
+              height={24}
+              width={24}
+              onClick={() => setToggle((prev) => !prev)}
+              src={close}
+              alt={""}
+            />
+          )}
+        </Container>
+        <NavItemContainer toggle={toggle}>
+          {navLinks.map((link, index) => (
+            <NavItem key={index}>
+              <Link
+                onClick={() => setToggle(false)}
+                target={link === "blog" ? "_blank" : undefined}
+                href={link === "Home" ? "/" : `#${link.toLowerCase()}`}
+              >
+                {link}
+              </Link>
+            </NavItem>
+          ))}
+          <Button text="Contact" onClick={() => router.push("#contact")} />
+        </NavItemContainer>
+      </Wrapper>
+    </AnimatePresence>
   );
 };
-const Wrapper = styled.nav<{ toggle: boolean }>`
+const Wrapper = styled(motion.nav)<{ toggle: boolean }>`
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  position: -webkit-sticky;
   display: flex;
   justify-content: space-between;
-  padding: 32px 0;
+  background-color: ${({ theme }) => theme.colors.white};
+  padding: 20px 10%;
+  align-items: center;
+  @media (max-width: 800px) {
+    padding: 20px 20px;
+  }
   @media (max-width: 425px) {
     ${({ toggle }) =>
       toggle &&
@@ -58,7 +91,6 @@ const Wrapper = styled.nav<{ toggle: boolean }>`
         left: 0;
         right: 0;
         padding: 32px;
-        background-color: ${({ theme }) => theme.colors.background};
       `}
   }
 `;
@@ -75,6 +107,11 @@ const Container = styled.div`
 const LogoContainer = styled.div`
   display: flex;
   column-gap: 5px;
+  @media (max-width: 800px) {
+    img {
+      width: 150px;
+    }
+  }
 `;
 const Hambuger = styled(Image)`
   cursor: pointer;
@@ -83,20 +120,16 @@ const Hambuger = styled(Image)`
     display: block;
   }
 `;
-const Logo = styled.h1`
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 27px;
-`;
 const NavItemContainer = styled.ul<{ toggle: boolean }>`
   flex-direction: row;
   display: flex;
+  align-items: center;
   column-gap: 32px;
+  @media (max-width: 800px) {
+    column-gap: 16px;
+  }
   @media (max-width: 425px) {
     display: none;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 42px;
     row-gap: 32px;
     ${({ toggle }) =>
       toggle &&
@@ -108,9 +141,8 @@ const NavItemContainer = styled.ul<{ toggle: boolean }>`
 `;
 const NavItem = styled.li`
   list-style: none;
-  span {
-    color: ${({ theme }) => theme.colors.primary};
-  }
+  color: ${({ theme }) => theme.colors.background};
+  ${({}) => typography.bodyRegular};
   a {
     color: inherit;
     text-decoration: none;

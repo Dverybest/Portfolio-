@@ -1,48 +1,41 @@
 import {
   AboutMe,
+  Banner,
+  Blog,
   Contact,
   Footer,
   Hero,
   Projects,
-  Quote,
-  Skills,
+  WorkProcess,
 } from "@/components";
-import { background } from "@/public/images";
-import Head from "next/head";
+import { NavBar } from "@/components/NavBar";
+import { bg } from "@/public/images";
 import styled from "styled-components";
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Dverybest</title>
-      </Head>
-      <Container>
+    <Container>
+      <NavBar />
+      <Main>
         <Hero />
-        <Main>
-          <Quote />
-          <Projects />
-          <Skills />
-          <AboutMe />
-          <Contact />
-        </Main>
-        <Footer />
-      </Container>
-    </>
+        <AboutMe />
+        <WorkProcess />
+        <Projects />
+        <Banner />
+        <Blog />
+        <Contact />
+      </Main>
+      <Footer />
+    </Container>
   );
 }
-const Container = styled.div`
-  max-width: 1440px;
-  margin: auto;
-  position: relative;
-`;
+const Container = styled.div``;
 const Main = styled.main`
-  background-image: url(${background.src});
-  background-repeat: no-repeat;
+  background-image: url(${bg.src});
   background-position: top;
-  margin-top: 112px;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   position: relative;
-  background-size: cover;
 `;

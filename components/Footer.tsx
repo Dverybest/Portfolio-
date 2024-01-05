@@ -1,30 +1,17 @@
-import { logo } from "@/public/images";
-import Image from "next/image";
-import React, { FC } from "react";
-import styled from "styled-components";
-import { Social } from "./Social";
+import { Logo2 } from "@/public/images";
+import { FC } from "react";
+import styled, { useTheme } from "styled-components";
 
 export const Footer: FC = () => {
+  const { colors } = useTheme();
   return (
     <Container>
       <Row>
-        <Column>
-          <Row>
-            <LogoContainer>
-              <Image height={24} width={24} src={logo} alt={""} />
-              <Logo>DVERYBEST</Logo>
-            </LogoContainer>
-          </Row>
-          <Title>Senior Software Engineer</Title>
-        </Column>
-        <Column>
-          <Media>Media</Media>
-          <CustomSocial />
-        </Column>
+        <Logo2 fill={colors.white} />
+        <span id={"copyright"}>
+          copyright © Dverybest {new Date().getFullYear()}.
+        </span>
       </Row>
-      <span id={"copyright"}>
-        © Dverybest {new Date().getFullYear()}. All Rights Reserved.
-      </span>
     </Container>
   );
 };
@@ -33,18 +20,15 @@ const Container = styled.footer`
   display: flex;
   flex-direction: column;
   border-top: 2px solid ${({ theme }) => theme.colors.grey};
-  margin-top: 100px;
+  background-color: ${({ theme }) => theme.colors.grey900};
+  color: ${({ theme }) => theme.colors.white};
   padding: 32px 154px;
+  padding-top: 150px;
   @media (max-width: 1024px) {
-    padding: 32px 50px;
+    padding: 100px 50px 32px;
   }
   @media (max-width: 768px) {
-    padding: 32px 20px;
-  }
-  #copyright {
-    text-align: center;
-    align-self: center;
-    padding-top: 48px;
+    padding: 100px 20px 32px;
   }
 `;
 const Row = styled.div`
@@ -59,49 +43,5 @@ const Row = styled.div`
   justify-content: space-between;
   @media (max-width: 425px) {
     flex-direction: column;
-  }
-`;
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 24px;
-  column-gap: 16px;
-  @media (max-width: 425px) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-`;
-const LogoContainer = styled.div`
-  display: flex;
-  column-gap: 5px;
-`;
-const Logo = styled.h1`
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 27px;
-  color: ${({ theme }) => theme.colors.white};
-`;
-const Title = styled.p`
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 21px;
-  margin-top: -10px;
-  color: ${({ theme }) => theme.colors.white};
-  @media (max-width: 425px) {
-    margin-top: 0px;
-  }
-`;
-const Media = styled.p`
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 31px;
-`;
-const CustomSocial = styled(Social)`
-  flex-direction: row;
-  display: flex;
-  column-gap: 32px;
-  #line {
-    display: none;
   }
 `;

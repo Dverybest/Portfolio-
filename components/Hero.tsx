@@ -1,127 +1,158 @@
-import { background1, user1 } from "@/public/images";
+import { user1 } from "@/public/images";
+import { typography } from "@/utils";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import React, { FC } from "react";
+import { useRouter } from "next/router";
+import { FC } from "react";
 import styled from "styled-components";
 import { Button } from "./Button";
-import { NavBar } from "./NavBar";
-import { Social } from "./Social";
 
 export const Hero: FC = () => {
+  const router = useRouter();
+  const variants = {
+    hide: {
+      opacity: 0,
+      y: 150,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        stiffness: 200,
+      },
+    },
+  };
   return (
-    <HeaderContainer>
-      <Social />
-      <Header>
-        <NavBar />
-        <HeaderMain>
-          <HeaderDetails>
-            <Title>
-              Hey, <br/><span id={"name"}>I&apos;m Charles Best;</span><br/> a{" "}
-            <span id={"title"}>Senior Software Engineer.</span>
-            </Title>
-            <SubTitle>
-              Software engineer with extensive knowledge and experience in
-              building enterprise and small scale software solutions.
-            </SubTitle>
-            <Button text="Contact me!!" />
-          </HeaderDetails>
-          <HeaderDetails>
-            <UserImageContainer>
-              <UserImage priority src={user1} alt={"Charles Best"} />
-              <WorkingOnContainer>
-                <Status />
-                Currently working on Portfolio
-              </WorkingOnContainer>
-            </UserImageContainer>
-          </HeaderDetails>
-        </HeaderMain>
-      </Header>
-    </HeaderContainer>
+    <Header>
+      <HeaderMain
+        as={motion.div}
+        variants={variants}
+        initial={"hide"}
+        exit={"hide"}
+        whileInView={"show"}
+      >
+        <HeaderDetails>
+          <Title>
+            Hello, I&apos;m <br />
+            Charles Best
+          </Title>
+          <SubTitle>
+            I&apos;m a goal-driven Software Engineer with over 6 years of
+            experience and proven expertise in leading diverse teams to ideate,
+            build, and deploy innovative software solutions.
+          </SubTitle>
+          <Button text="Say Hello!" onClick={() => router.push("#contact")} />
+
+          <InfoContainer>
+            <InfoCard>
+              <InfoValue>6+ Y.</InfoValue>
+              <InfoTitle>Experience</InfoTitle>
+            </InfoCard>
+            <InfoCard>
+              <InfoValue>100+</InfoValue>
+              <InfoTitle>Project Completed</InfoTitle>
+            </InfoCard>
+            <InfoCard>
+              <InfoValue>58</InfoValue>
+              <InfoTitle>Happy Client</InfoTitle>
+            </InfoCard>
+          </InfoContainer>
+        </HeaderDetails>
+        <HeaderDetails as={motion.div} whileHover={{ scale: 1.05 }}>
+          <UserImage priority src={user1} alt={"Charles Best"} />
+        </HeaderDetails>
+      </HeaderMain>
+    </Header>
   );
 };
-const HeaderContainer = styled.section`
-  flex-direction: row;
-  display: flex;
-  padding: 0px 32px;
-`;
+
 const Header = styled.header`
   flex-direction: column;
   display: flex;
   flex: 1;
-  padding: 0 122px;
+  padding: 134px 10% 0px;
   @media (max-width: 1024px) {
-    padding: 0 50px;
+    padding: 134px 7% 0px;
   }
   @media (max-width: 768px) {
-    padding: 0 20px;
+    padding: 82px 5% 0;
   }
-  @media (max-width: 425px) {
-    padding: 0;
+  @media (max-width: 500px) {
+    align-items: center;
+    padding-top: 50px;
   }
 `;
 
 const HeaderMain = styled.div`
   display: flex;
-  column-gap: 5px;
-  @media (max-width: 425px) {
-    flex-direction: column;
+  column-gap: 136px;
+  @media (max-width: 1024px) {
+    column-gap: 40px;
+  }
+  @media (max-width: 800px) {
+    column-gap: 32px;
+  }
+  @media (max-width: 500px) {
+    flex-direction: column-reverse;
+    row-gap: 32px;
   }
 `;
 const HeaderDetails = styled.div`
   flex: 1;
   flex-direction: column;
   justify-content: center;
+  row-gap: 24px;
   display: flex;
+  color: ${({ theme }) => theme.colors.grey900};
+  @media (max-width: 500px) {
+    align-items: center;
+  }
 `;
 const Title = styled.h1`
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 42px;
-  word-wrap: break-word;
-  #title {
+  ${() => typography.display}
+  @media (800px<width<= 1024px) {
+    font-size: 64px;
   }
-  #title {
-    color: ${({ theme }) => theme.colors.primary};
+  @media (max-width: 500px) {
+    text-align: center;
   }
 `;
 const SubTitle = styled.h3`
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 25px;
-  margin: 32px 0 24px 0;
+  ${() => typography.bodyLarge}
+  @media (max-width: 500px) {
+    text-align: justify;
+  }
 `;
-const UserImageContainer = styled.div`
-  background-image: url(${background1.src});
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
-  background-size: contain;
-`;
+
 const UserImage = styled(Image)`
-  /* max-width: 460px; */
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
   height: auto;
+  @media (max-width: 500px) {
+    width: 90%;
+  }
 `;
-const WorkingOnContainer = styled.div`
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 21px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-  padding: 10.5px 8px;
-  align-items: center;
+const InfoContainer = styled.div`
   display: flex;
-  column-gap: 10px;
-  background-color: ${({ theme }) => theme.colors.background};
-  border: 1px solid ${({ theme }) => theme.colors.grey};
+  border-radius: 6px;
+  column-gap: 3px;
+  overflow: hidden;
+  border: 1px solid ${({ theme }) => theme.colors.white};
 `;
-const Status = styled.span`
-  min-height: 16px;
-  min-width: 16px;
-  display: inline-block;
-  background-color: ${({ theme }) => theme.colors.primary};
-  border: 1px solid ${({ theme }) => theme.colors.primary};
+const InfoCard = styled.div`
+  display: flex;
+  padding: 12px;
+  flex-grow: 1;
+  align-items: center;
+  background: ${({ theme }) => theme.colors.primary05};
+  flex-direction: column;
+`;
+const InfoValue = styled.p`
+  ${({}) => typography.header3}
+  color:${({ theme }) => theme.colors.grey500};
+`;
+const InfoTitle = styled.p`
+  ${({}) => typography.bodyRegular400}
+  color:${({ theme }) => theme.colors.grey500};
 `;

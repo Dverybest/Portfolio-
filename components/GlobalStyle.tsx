@@ -9,10 +9,9 @@ export const GlobalStyle = createGlobalStyle`
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
-  font-family: Fira Code;
-  background-color:${({ theme }) => theme.colors.background};
-  color: ${(props) => props.theme.colors.white};
+  /* overflow-x: hidden; */
+  font-family: 'Work Sans', sans-serif;
+  color: ${({ theme }) => theme.colors.grey900};
   scroll-behavior: smooth!important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
